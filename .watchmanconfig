@@ -1,0 +1,4 @@
+{
+  "root_files": [".git"],
+  "watcher-max-files": 100000
+}
