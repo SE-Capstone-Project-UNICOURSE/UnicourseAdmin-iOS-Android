@@ -1,8 +1,13 @@
+import icons from '@app/assets/icons';
+import { Button, Input, Text } from '@rneui/base';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Input, Button, Text} from '@rneui/base';
+import { StyleSheet, View } from 'react-native';
+import useLoginViewModel from '../viewmodels/useLoginViewModel';
 
 const LoginScreen = () => {
+  const googleIcon = icons.googleIcon;
+  useLoginViewModel();
+
   return (
     <View style={styles.container}>
       <Text h3 style={styles.title}>
@@ -11,23 +16,19 @@ const LoginScreen = () => {
 
       <Input
         placeholder="Email"
-        leftIcon={{type: 'material', name: 'email', color: '#aaa'}}
+        leftIcon={{ type: 'material', name: 'email', color: '#aaa' }}
         inputStyle={styles.inputText}
         containerStyle={styles.inputContainer}
       />
       <Input
         placeholder="Password"
-        leftIcon={{type: 'material', name: 'lock', color: '#aaa'}}
+        leftIcon={{ type: 'material', name: 'lock', color: '#aaa' }}
         secureTextEntry
         inputStyle={styles.inputText}
         containerStyle={styles.inputContainer}
       />
 
-      <Button
-        title="Login"
-        buttonStyle={styles.button}
-        containerStyle={styles.buttonContainer}
-      />
+      <Button title="Login" buttonStyle={styles.button} containerStyle={styles.buttonContainer} />
       <Text style={styles.footerText}>
         Don't have an account? <Text style={styles.link}>Sign up</Text>
       </Text>
