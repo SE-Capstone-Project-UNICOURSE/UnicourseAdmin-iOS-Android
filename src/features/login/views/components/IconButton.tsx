@@ -1,28 +1,32 @@
-import icons from '@app/assets/icons';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const IconButton = () => {
+type IconButtonProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon: any;
+  action?: () => void;
+};
+
+const IconButton = ({ icon, action }: IconButtonProps) => {
   return (
-    <View style={style.buttonContainer}>
-      <FastImage
-        style={style.icon}
-        source={icons.appleIcon}
-        resizeMode={FastImage.resizeMode.contain}
-      />
-    </View>
+    <TouchableOpacity onPress={action} style={style.buttonContainer}>
+      <FastImage style={style.icon} source={icon} resizeMode={FastImage.resizeMode.contain} />
+    </TouchableOpacity>
   );
 };
 
 const style = StyleSheet.create({
   buttonContainer: {
     borderRadius: 50,
-    padding: 10,
+    padding: 15,
+    borderColor: 'gray',
+    borderWidth: 0.2,
   },
   icon: {
-    width: 20,
-    height: 20,
+    width: 25,
+    height: 25,
     resizeMode: 'contain',
   },
 });

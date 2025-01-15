@@ -1,7 +1,9 @@
+import icons from '@app/assets/icons';
 import { Button, CheckBox, Divider, Icon, Image, Input, Text } from '@rneui/themed';
 import React, { useCallback, useState } from 'react';
 import { Keyboard, StyleSheet, View } from 'react-native';
-import { GestureHandlerRootView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import IconButton from './components/IconButton';
 
 export default function LoginScreen() {
@@ -15,20 +17,22 @@ export default function LoginScreen() {
   }, []);
 
   return (
-    // Wrap the entire screen with GestureHandlerRootView
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      <SafeAreaView>
         <TouchableWithoutFeedback onPress={dismissKeyboard}>
-          <Image
-            source={{
-              uri: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-15%20at%2014.26.22-Ibbt7KJU9rCiCwi4amnjMqO1XkvUmB.png',
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
-            style={styles.logo}
-            resizeMode="contain"
-          />
+          >
+            <Image source={icons.logoIcon} style={styles.logo} resizeMode="contain" />
+          </View>
 
           <View style={styles.headerContainer}>
-            <Text style={styles.title} h4>
+            <Text style={styles.title} h3>
               Let's continue manage your{'\n'}business
             </Text>
             <Text style={styles.subtitle}>Your business is waiting for you</Text>
@@ -82,16 +86,19 @@ export default function LoginScreen() {
             buttonStyle={styles.signInButton}
           />
 
-          <Divider style={styles.divider}>
-            <Text style={styles.orText}>or</Text>
-          </Divider>
+          <View style={styles.diviverContainer}>
+            <Divider width={1} style={styles.divider} />
+            <Text style={styles.orText}>Or</Text>
+            <Divider width={1} style={styles.divider} />
+          </View>
 
           <View style={styles.socialContainer}>
-            <IconButton />
+            <IconButton icon={icons.appleIcon} />
+            <IconButton icon={icons.googleIcon} />
           </View>
         </TouchableWithoutFeedback>
-      </View>
-    </GestureHandlerRootView> // GestureHandlerRootView wraps the entire screen
+      </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -99,12 +106,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 20,
+    padding: 10,
   },
   logo: {
-    width: 150,
-    height: 40,
-    marginTop: 40,
+    width: 100,
+    height: 100,
   },
   headerContainer: {
     marginTop: 24,
@@ -112,11 +118,12 @@ const styles = StyleSheet.create({
   },
   title: {
     marginBottom: 8,
-    color: '#000',
+    textAlign: 'center',
   },
   subtitle: {
     fontSize: 16,
     color: '#666',
+    textAlign: 'center',
   },
   inputContainer: {
     gap: 8,
@@ -136,31 +143,36 @@ const styles = StyleSheet.create({
   rememberText: {
     fontWeight: 'normal',
     color: '#666',
+    fontSize: 15,
   },
   forgotText: {
     color: '#FF3B30',
-    fontSize: 14,
+    fontSize: 15,
   },
   signInButtonContainer: {
     marginTop: 24,
   },
   signInButton: {
     backgroundColor: '#4285F4',
-    borderRadius: 8,
+    borderRadius: 25,
     padding: 12,
   },
-  divider: {
-    marginVertical: 24,
+  diviverContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 25,
   },
+  divider: { width: '42%' },
   orText: {
     color: '#666',
-    backgroundColor: '#fff',
-    paddingHorizontal: 10,
+    fontWeight: 'bold',
   },
   socialContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 16,
+    gap: 30,
   },
   socialButton: {
     width: 48,

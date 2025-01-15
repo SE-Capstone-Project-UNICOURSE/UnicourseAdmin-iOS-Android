@@ -24,7 +24,7 @@ const App = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <SafeAreaProvider>
-          <GestureHandlerRootView style={{ flex: 1 }}>
+          <GestureHandlerRootView>
             <NavigationContainer>
               <AppNavigator />
               <StatusBar />
