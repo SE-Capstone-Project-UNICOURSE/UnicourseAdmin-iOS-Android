@@ -11,38 +11,57 @@ const HomeNavigator = () => {
 
   return (
     <Tab.Navigator>
-      {bottomTabRoutes.map((route) => (
-        <Tab.Screen
-          key={route.name}
-          name={route.name}
-          component={route.component}
-          options={{
-            ...route.options,
-            tabBarIcon: ({ focused, color, size }) => {
-              const type = 'ionicon';
-              let iconName;
-              switch (route.name) {
-                case 'homeTab':
-                  iconName = focused ? 'home' : 'home-outline';
-                  break;
-                case 'insightTab':
-                  iconName = focused ? 'bar-chart' : 'bar-chart-outline';
-                  break;
-                case 'paymentTab':
-                  iconName = focused ? 'card' : 'card-outline';
-                  break;
-                case 'settingTab':
-                  iconName = focused ? 'settings' : 'settings-outline';
-                  break;
-                default:
-                  iconName = 'circle';
-              }
+      {bottomTabRoutes.map((route) => {
+        let routeName;
+        switch (route.name) {
+          case 'homeTab':
+            routeName = 'Home';
+            break;
+          case 'insightTab':
+            routeName = 'Insight';
+            break;
+          case 'paymentTab':
+            routeName = 'Payment';
+            break;
+          case 'settingTab':
+            routeName = 'Setting';
+            break;
+        }
 
-              return <Icon name={iconName} type={type} size={size} color={color} />;
-            },
-          }}
-        />
-      ))}
+        return (
+          <Tab.Screen
+            key={route.name}
+            name={route.name}
+            component={route.component}
+            options={{
+              ...route.options,
+              title: routeName,
+              tabBarIcon: ({ focused, color, size }) => {
+                const type = 'ionicon';
+                let iconName;
+                switch (route.name) {
+                  case 'homeTab':
+                    iconName = focused ? 'home' : 'home-outline';
+                    break;
+                  case 'insightTab':
+                    iconName = focused ? 'bar-chart' : 'bar-chart-outline';
+                    break;
+                  case 'paymentTab':
+                    iconName = focused ? 'card' : 'card-outline';
+                    break;
+                  case 'settingTab':
+                    iconName = focused ? 'settings' : 'settings-outline';
+                    break;
+                  default:
+                    iconName = 'circle';
+                }
+
+                return <Icon name={iconName} type={type} size={size} color={color} />;
+              },
+            }}
+          />
+        );
+      })}
     </Tab.Navigator>
   );
 };
