@@ -21,6 +21,7 @@ export default [
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
       'react/no-unescaped-entities': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
 ];
