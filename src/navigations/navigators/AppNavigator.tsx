@@ -1,7 +1,7 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import useRoutes from '../hooks/useRoutes';
-import {RootStackParams} from '../types/RootStackParams.type';
+import { RootStackParams } from '../types/RootStackParams.type';
 
 const Stack = createNativeStackNavigator<RootStackParams>();
 
@@ -9,7 +9,7 @@ const AppNavigator = () => {
   const route = useRoutes();
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="home">
       {route.map((route) => (
         <Stack.Screen
           key={route.name}
