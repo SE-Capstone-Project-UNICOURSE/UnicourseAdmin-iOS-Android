@@ -11,17 +11,17 @@ const useBottomTabRoutes = (): BottomTabRoute<HomeTabParams>[] => {
     },
     {
       name: 'insightTab',
-      component: BottomScreen.InsightView,
+      component: BottomScreen.InsightScreen,
       options: { headerShown: false },
     },
     {
       name: 'paymentTab',
-      component: BottomScreen.PaymentView,
+      component: BottomScreen.PaymentScreen,
       options: { headerShown: false },
     },
     {
       name: 'settingTab',
-      component: BottomScreen.SettingView,
+      component: BottomScreen.SettingScreen,
     },
   ];
 

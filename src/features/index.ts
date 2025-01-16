@@ -1,8 +1,8 @@
 import HomeScreen from './home/views/screens/HomeScreen';
-import InsightView from './insight/views/screens/InsightScreen.ios';
+import InsightScreen from './insight/views/screens/InsightScreen';
 import LoginScreen from './login/views/screens/LoginScreen';
-import PaymentView from './payments/views/screens/PaymentScreen';
-import SettingView from './settings/views/screens/SettingScreen.ios';
+import PaymentScreen from './payments/views/screens/PaymentScreen';
+import SettingScreen from './settings/views/screens/SettingScreen';
 
 const MainScreens = {
   LoginScreen,
@@ -10,9 +10,9 @@ const MainScreens = {
 
 const BottomScreen = {
   HomeScreen,
-  PaymentView,
-  InsightView,
-  SettingView,
+  PaymentScreen,
+  InsightScreen,
+  SettingScreen,
 };
 
 export { BottomScreen };
