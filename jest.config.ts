@@ -1,4 +1,4 @@
-import type {Config} from 'jest';
+import type { Config } from 'jest';
 
 const config: Config = {
   preset: 'react-native',
@@ -7,8 +7,7 @@ const config: Config = {
     '^.+\\.(css|less|scss|sass|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   moduleNameMapper: {
-    '\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
-      'jest-transform-stub',
+    '\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   setupFilesAfterEnv: ['./jest-setup.ts'],
   transformIgnorePatterns: [

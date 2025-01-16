@@ -1,10 +1,10 @@
 import icons from '@app/assets/icons';
 import { Button, CheckBox, Divider, Icon, Image, Input, Text } from '@rneui/themed';
 import React, { useCallback, useState } from 'react';
-import { Keyboard, StyleSheet, View } from 'react-native';
-import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { Keyboard, ScrollView, StyleSheet, View } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import IconButton from './components/IconButton';
+import IconButton from '../components/IconButton/IconButton';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -105,7 +105,6 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     padding: 10,
   },
   logo: {

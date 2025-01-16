@@ -2,12 +2,12 @@ import React from 'react';
 import { Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const InsightView = () => {
+const PaymentScreen = () => {
   return (
     <SafeAreaView>
-      <Text>InsightView</Text>
+      <Text>PaymentView Android</Text>
     </SafeAreaView>
   );
 };
 
-export default InsightView;
+export default PaymentScreen;

@@ -6,7 +6,7 @@ const useBottomTabRoutes = (): BottomTabRoute<HomeTabParams>[] => {
   const routes: BottomTabRoute<HomeTabParams>[] = [
     {
       name: 'homeTab',
-      component: BottomScreen.HomeView,
+      component: BottomScreen.HomeScreen,
       options: { headerShown: false },
     },
     {
