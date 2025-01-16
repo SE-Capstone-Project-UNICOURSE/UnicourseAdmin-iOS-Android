@@ -7,7 +7,9 @@ const useBottomTabRoutes = (): BottomTabRoute<HomeTabParams>[] => {
     {
       name: 'homeTab',
       component: BottomScreen.HomeScreen,
-      options: { headerShown: false },
+      options: {
+        headerShown: false,
+      },
     },
     {
       name: 'insightTab',
@@ -22,6 +24,7 @@ const useBottomTabRoutes = (): BottomTabRoute<HomeTabParams>[] => {
     {
       name: 'settingTab',
       component: BottomScreen.SettingScreen,
+      options: { headerShown: false },
     },
   ];
 

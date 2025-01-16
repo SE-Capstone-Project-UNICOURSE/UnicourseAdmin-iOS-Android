@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from '@rneui/base';
 import React from 'react';
-import useBottomTabRoutes from '../hooks/useHomeBottomRoutes';
+import useBottomTabRoutes from '../hooks/useBottomRoutes';
 import { HomeTabParams } from '../types/HomeTabParams.type';
 
 const Tab = createBottomTabNavigator<HomeTabParams>();

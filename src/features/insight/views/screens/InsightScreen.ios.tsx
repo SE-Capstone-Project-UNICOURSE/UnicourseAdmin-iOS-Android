@@ -104,7 +104,6 @@ const InsightScreen = () => {
                 stroke: '#e3e3e3',
               },
             }}
-            style={styles.chart}
             showBarTops={false}
             fromZero
             withInnerLines={true}
@@ -124,20 +123,22 @@ const InsightScreen = () => {
               bottomDivider={index !== orders.length - 1}
             >
               <ListItem.Content>
-                <View style={styles.orderHeader}>
-                  <Text style={styles.orderId}>{order.id}</Text>
-                  <Text
-                    style={[
-                      styles.orderStatus,
-                      { color: order.status === 'Completed' ? '#4CAF50' : '#FF9800' },
-                    ]}
-                  >
-                    {order.status}
-                  </Text>
-                </View>
-                <View style={styles.orderDetails}>
-                  <Text style={styles.orderAmount}>${order.amount.toFixed(2)}</Text>
-                  <Text style={styles.orderTime}>{order.time}</Text>
+                <View style={{ width: '100%' }}>
+                  <View style={styles.orderHeader}>
+                    <Text style={styles.orderId}>{order.id}</Text>
+                    <Text
+                      style={[
+                        styles.orderStatus,
+                        { color: order.status === 'Completed' ? '#4CAF50' : '#FF9800' },
+                      ]}
+                    >
+                      {order.status}
+                    </Text>
+                  </View>
+                  <View style={styles.orderDetails}>
+                    <Text style={styles.orderAmount}>${order.amount.toFixed(2)}</Text>
+                    <Text style={styles.orderTime}>{order.time}</Text>
+                  </View>
                 </View>
               </ListItem.Content>
             </ListItem>
@@ -209,10 +210,6 @@ const styles = StyleSheet.create({
   },
   selectedTimeRangeText: {
     color: '#fff',
-  },
-  chart: {
-    marginVertical: 8,
-    borderRadius: 16,
   },
   ordersSection: {
     paddingTop: 16,

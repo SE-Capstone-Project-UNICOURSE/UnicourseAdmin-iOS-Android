@@ -1,36 +1,22 @@
-import { Avatar, Card, Icon, Text, useTheme } from '@rneui/themed';
+import { HomeTabParams } from '@app/navigation/types/HomeTabParams.type';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Card, Icon, Text, useTheme } from '@rneui/themed';
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import MetricCard from '../components/MetricCard.ios';
+import HeaderHome from '../components/HeaderHome';
+import MetricCard from '../components/MetricCard';
 
 const HomeScreen = () => {
   const { theme } = useTheme();
+  const navigation = useNavigation<NativeStackNavigationProp<HomeTabParams>>();
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
-      <ScrollView>
-        <View style={styles.header}>
-          <View style={styles.headerLeft}>
-            <Avatar
-              size={40}
-              rounded
-              icon={{ name: 'user', type: 'font-awesome' }}
-              containerStyle={styles.avatar}
-            />
-            <View>
-              <Text style={styles.welcomeText}>Welcome back,</Text>
-              <Text style={styles.nameText}>Arfi Ganteng</Text>
-            </View>
-          </View>
-          <Icon
-            name="bell-outline"
-            type="material-community"
-            size={24}
-            color={theme.colors.black}
-          />
-        </View>
+    <SafeAreaView style={styles.container}>
+      <HeaderHome />
 
+      <ScrollView>
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>My Business</Text>
           <Card containerStyle={styles.darkCard}>
@@ -94,18 +80,27 @@ const HomeScreen = () => {
               size={20}
             />
           </View>
-          <Card containerStyle={styles.ordersCard}>
-            <View style={styles.ordersRow}>
-              <View>
-                <Text style={styles.ordersValue}>$13,320</Text>
-                <Text style={[styles.ordersPercentage, styles.positive]}>+0.33%</Text>
+          <View style={styles.analyticsContainer}>
+            <Card containerStyle={styles.analyticsCard}>
+              <Text style={styles.analyticsLabel}>Revenues & Expenses</Text>
+              <View style={styles.analyticsRow}>
+                <View>
+                  <Text style={styles.analyticsTitle}>Revenue</Text>
+                  <View style={styles.analyticsMetric}>
+                    <Text style={styles.analyticsValue}>$11,320</Text>
+                    <Text style={[styles.analyticsPercentage, styles.positive]}>+0.2%</Text>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.analyticsTitle}>Expenses</Text>
+                  <View style={styles.analyticsMetric}>
+                    <Text style={styles.analyticsValue}>$1,320</Text>
+                    <Text style={[styles.analyticsPercentage, styles.positive]}>+0.4%</Text>
+                  </View>
+                </View>
               </View>
-              <View>
-                <Text style={styles.ordersValue}>$22,123</Text>
-                <Text style={[styles.ordersPercentage, styles.positive]}>+0.22%</Text>
-              </View>
-            </View>
-          </Card>
+            </Card>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -115,40 +110,17 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-  },
-  headerLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  avatar: {
-    backgroundColor: '#E1E1E1',
-    marginRight: 12,
-  },
-  welcomeText: {
-    fontSize: 14,
-    color: '#666',
-  },
-  nameText: {
-    fontSize: 16,
-    fontWeight: '600',
+    backgroundColor: 'white',
   },
   section: {
-    marginBottom: 24,
+    marginBottom: 12,
   },
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 16,
     marginBottom: 12,
+    paddingRight: 12,
   },
   sectionTitle: {
     fontSize: 18,
@@ -191,7 +163,7 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   analyticsLabel: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#666',
     marginBottom: 12,
   },
@@ -214,23 +186,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   analyticsPercentage: {
-    fontSize: 12,
-  },
-  ordersCard: {
-    borderRadius: 16,
-    padding: 16,
-    margin: 16,
-    marginTop: 0,
-  },
-  ordersRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  ordersValue: {
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  ordersPercentage: {
     fontSize: 12,
   },
   positive: {
