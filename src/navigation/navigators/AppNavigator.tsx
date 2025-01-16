@@ -9,7 +9,7 @@ const AppNavigator = () => {
   const route = useRoutes();
 
   return (
-    <Stack.Navigator initialRouteName="login">
+    <Stack.Navigator initialRouteName="home">
       {route.map((route) => (
         <Stack.Screen
           key={route.name}

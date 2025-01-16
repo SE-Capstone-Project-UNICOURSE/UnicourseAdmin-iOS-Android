@@ -13,6 +13,11 @@ const config: Config = {
   transformIgnorePatterns: [
     'node_modules/(?!(@rneui|react-redux|react-native-vector-icons|@react-native|react-native|@react-navigation|react-native-ratings|react-native-size-matters)/)',
   ],
+  testMatch: [
+    '<rootDir>/__tests__/*.{ts,tsx,js,jsx}',
+    '<rootDir>/src/**/*.{test,spec}.{ts,tsx,js,jsx}',
+  ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',

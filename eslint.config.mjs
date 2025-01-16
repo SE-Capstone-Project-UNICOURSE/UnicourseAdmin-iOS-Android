@@ -19,6 +19,7 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     rules: {
+      'no-undef': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       'react/no-unescaped-entities': 'off',
       '@typescript-eslint/no-require-imports': 'off',

@@ -22,7 +22,6 @@ const useBottomTabRoutes = (): BottomTabRoute<HomeTabParams>[] => {
     {
       name: 'settingTab',
       component: BottomScreen.SettingView,
-      options: { headerShown: false },
     },
   ];
 
