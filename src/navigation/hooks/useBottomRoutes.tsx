@@ -1,4 +1,4 @@
-import { BottomScreen } from '@app/features';
+import { BottomScreen } from '@app/presentation/features';
 import { HomeTabParams } from '../types/HomeTabParams.type';
 import { BottomTabRoute } from '../types/Route.type';
 
