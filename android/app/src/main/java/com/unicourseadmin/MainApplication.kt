@@ -1,4 +1,4 @@
-package com.unicourse_lecturer
+package com.unicourseadmin
 
 import android.app.Application
 import com.facebook.react.PackageList
