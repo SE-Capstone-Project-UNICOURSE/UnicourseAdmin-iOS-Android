@@ -1,14 +1,11 @@
-import { RootStackParams } from '@app/navigation/types/RootStackParams.type';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import useAppNavigation from '@app/navigation/hooks/useAppNavigation';
 import { Avatar, Button, Icon, ListItem, Text } from '@rneui/themed';
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const SettingScreen = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParams>>();
-
+  const { navigation } = useAppNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -102,6 +99,12 @@ const SettingScreen = () => {
           type="outline"
           titleStyle={styles.logoutText}
           containerStyle={styles.logoutButton}
+          onPress={() =>
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'login' }],
+            })
+          }
         />
       </ScrollView>
     </SafeAreaView>

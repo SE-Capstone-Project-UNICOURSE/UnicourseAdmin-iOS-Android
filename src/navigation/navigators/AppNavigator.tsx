@@ -3,7 +3,7 @@ import React from 'react';
 import useRoutes from '../hooks/useRoutes';
 import { RootStackParams } from '../types/RootStackParams.type';
 
-const Stack = createNativeStackNavigator<RootStackParams>();
+export const Stack = createNativeStackNavigator<RootStackParams>();
 
 const AppNavigator = () => {
   const route = useRoutes();

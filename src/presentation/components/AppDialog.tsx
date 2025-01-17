@@ -4,7 +4,7 @@ import { hideDialog } from '@app/stores/slices/dialog.slice';
 import { DialogType } from '@app/stores/types/dialog.type';
 import { Button, Image, Overlay, Text, useTheme } from '@rneui/themed';
 import React from 'react';
-import { Modal, ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 const AppDialog = () => {
   const { theme } = useTheme();
@@ -59,39 +59,37 @@ const AppDialog = () => {
   const { color, image } = getDialogStyles();
 
   return (
-    <Modal visible={isVisible} transparent animationType="fade" onRequestClose={handleCancel}>
-      <Overlay isVisible={isVisible} onBackdropPress={handleCancel} overlayStyle={styles.overlay}>
-        <View style={[styles.content, { backgroundColor: theme.colors.background }]}>
-          <ScrollView contentContainerStyle={styles.scrollContent}>
-            <Text style={[styles.title, { color }]} numberOfLines={3}>
-              {title}
-            </Text>
-            <Image source={image} style={styles.image} resizeMode="contain" />
-            <Text style={[styles.contentText, { color: theme.colors.grey0 }]} numberOfLines={20}>
-              {content}
-            </Text>
-          </ScrollView>
-          {!isCustomizeButton && (
-            <View style={styles.footer}>
-              {type !== DialogType.NORMAL && (
-                <Button
-                  title={cancelButtonText}
-                  onPress={handleCancel}
-                  buttonStyle={[styles.button, styles.cancelButton]}
-                  titleStyle={styles.buttonText}
-                />
-              )}
+    <Overlay isVisible={isVisible} onBackdropPress={handleCancel} overlayStyle={styles.overlay}>
+      <View style={[styles.content, { backgroundColor: theme.colors.background }]}>
+        <ScrollView contentContainerStyle={styles.scrollContent}>
+          <Text style={[styles.title, { color }]} numberOfLines={3}>
+            {title}
+          </Text>
+          <Image source={image} style={styles.image} resizeMode="contain" />
+          <Text style={[styles.contentText, { color: theme.colors.grey0 }]} numberOfLines={20}>
+            {content}
+          </Text>
+        </ScrollView>
+        {!isCustomizeButton && (
+          <View style={styles.footer}>
+            {type !== DialogType.NORMAL && (
               <Button
-                title={confirmButtonText}
-                onPress={handleConfirm}
-                buttonStyle={[styles.button, { backgroundColor: color }]}
+                title={cancelButtonText}
+                onPress={handleCancel}
+                buttonStyle={[styles.button, styles.cancelButton]}
                 titleStyle={styles.buttonText}
               />
-            </View>
-          )}
-        </View>
-      </Overlay>
-    </Modal>
+            )}
+            <Button
+              title={confirmButtonText}
+              onPress={handleConfirm}
+              buttonStyle={[styles.button, { backgroundColor: color }]}
+              titleStyle={styles.buttonText}
+            />
+          </View>
+        )}
+      </View>
+    </Overlay>
   );
 };
 

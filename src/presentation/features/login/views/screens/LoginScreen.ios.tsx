@@ -1,21 +1,19 @@
 import icons from '@app/assets/icons';
-import { Button, CheckBox, Divider, Icon, Image, Input, Text } from '@rneui/themed';
-import React, { useCallback, useState } from 'react';
-import { Keyboard, StyleSheet, View } from 'react-native';
+import useAppNavigation from '@app/navigation/hooks/useAppNavigation';
+import { Button, CheckBox, Divider, Icon, Image, Input, Text, useTheme } from '@rneui/themed';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import IconButton from '../components/IconButton/IconButton';
 
-export default function LoginScreen() {
+const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-
-  const dismissKeyboard = useCallback(() => {
-    Keyboard.dismiss();
-  }, []);
-
+  const { navigation } = useAppNavigation();
+  const theme = useTheme();
   return (
     <ScrollView style={styles.container}>
       <SafeAreaView>
@@ -83,7 +81,7 @@ export default function LoginScreen() {
           title="Sign in"
           containerStyle={styles.signInButtonContainer}
           buttonStyle={styles.signInButton}
-          onPress={() => console.log('Press')}
+          onPress={() => navigation.navigate('home')}
         />
 
         <View style={styles.diviverContainer}>
@@ -99,11 +97,12 @@ export default function LoginScreen() {
       </SafeAreaView>
     </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    backgroundColor: 'white',
   },
   logo: {
     width: 100,
@@ -179,3 +178,5 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
   },
 });
+
+export default LoginScreen;

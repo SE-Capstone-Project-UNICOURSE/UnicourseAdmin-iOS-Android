@@ -1,6 +1,6 @@
 import MainScreens from '@app/presentation/features';
-import { Route } from '../types/Route.type';
 import HomeNavigator from '../navigators/HomeNavigator';
+import { Route } from '../types/Route.type';
 
 const useRoutes = (): Route[] => {
   const routes: Route[] = [
@@ -9,6 +9,7 @@ const useRoutes = (): Route[] => {
       component: MainScreens.LoginScreen,
       options: {
         headerShown: false,
+        presentation: 'fullScreenModal',
       },
     },
     {

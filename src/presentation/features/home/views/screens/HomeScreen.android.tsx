@@ -1,24 +1,113 @@
-import { HomeTabParams } from '@app/navigation/types/HomeTabParams.type';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import HeaderTitle from '@app/presentation/components/UI/HeaderTitle';
+import { useAppDispatch } from '@app/stores';
+import { MenuComponentRef, MenuView } from '@react-native-menu/menu';
+import { MenuAction } from '@react-native-menu/menu/lib/typescript/src/types';
 import { Card, Icon, Text, useTheme } from '@rneui/themed';
-import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import React, { useRef } from 'react';
+import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderHome from '../components/HeaderHome';
 import MetricCard from '../components/MetricCard';
+import { showDialog } from '@app/stores/slices/dialog.slice';
 
 const HomeScreen = () => {
+  const menuRef = useRef<MenuComponentRef>(null);
   const { theme } = useTheme();
-  const navigation = useNavigation<NativeStackNavigationProp<HomeTabParams>>();
+  const dispatch = useAppDispatch();
+
+  const configMenuButton: MenuAction[] = [
+    {
+      id: 'add',
+      title: 'Add',
+      titleColor: '#2367A2',
+      image: Platform.select({
+        ios: 'plus',
+        android: 'ic_menu_add',
+      }),
+      imageColor: '#2367A2',
+      subactions: [
+        {
+          id: 'nested1',
+          title: 'Nested action',
+          titleColor: 'rgba(250,180,100,0.5)',
+          subtitle: 'State is mixed',
+          image: Platform.select({
+            ios: 'heart.fill',
+            android: 'ic_menu_today',
+          }),
+          imageColor: 'rgba(100,200,250,0.3)',
+          state: 'mixed',
+        },
+        {
+          id: 'nestedDestructive',
+          title: 'Destructive Action',
+          attributes: {
+            destructive: true,
+          },
+          image: Platform.select({
+            ios: 'trash',
+            android: 'ic_menu_delete',
+          }),
+        },
+      ],
+    },
+    {
+      id: 'share',
+      title: 'Share Action',
+      titleColor: '#46F289',
+      subtitle: 'Share action on SNS',
+      image: Platform.select({
+        ios: 'square.and.arrow.up',
+        android: 'ic_menu_share',
+      }),
+      imageColor: '#46F289',
+      state: 'on',
+    },
+    {
+      id: 'destructive',
+      title: 'Destructive Action',
+      attributes: {
+        destructive: true,
+      },
+      image: Platform.select({
+        ios: 'trash',
+        android: 'ic_menu_delete',
+      }),
+    },
+  ];
 
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderHome />
-
       <ScrollView>
+        <HeaderHome />
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>My Business</Text>
+          <HeaderTitle
+            title="My Business"
+            optionAction={
+              <MenuView
+                ref={menuRef}
+                title="Menu Title"
+                onPressAction={({ nativeEvent }) => {
+                  console.warn(JSON.stringify(nativeEvent));
+                  dispatch(
+                    showDialog({
+                      title: 'Hi',
+                      content: 'Hehe',
+                    })
+                  );
+                }}
+                actions={configMenuButton}
+                shouldOpenOnLongPress={false}
+              >
+                <Icon
+                  name="dots-horizontal"
+                  type="material-community"
+                  color={theme.colors.black}
+                  size={20}
+                />
+              </MenuView>
+            }
+          />
           <Card containerStyle={styles.darkCard}>
             <View style={styles.cardHeader}>
               <Text style={styles.cardTitle}>Chicken Cute</Text>
@@ -38,15 +127,17 @@ const HomeScreen = () => {
         </View>
 
         <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Analytics</Text>
-            <Icon
-              name="dots-horizontal"
-              type="material-community"
-              color={theme.colors.black}
-              size={20}
-            />
-          </View>
+          <HeaderTitle
+            title="Analytics"
+            optionAction={
+              <Icon
+                name="dots-horizontal"
+                type="material-community"
+                color={theme.colors.black}
+                size={20}
+              />
+            }
+          />
           <View style={styles.analyticsContainer}>
             <Card containerStyle={styles.analyticsCard}>
               <Text style={styles.analyticsLabel}>Revenues & Expenses</Text>
@@ -71,15 +162,17 @@ const HomeScreen = () => {
         </View>
 
         <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Orders</Text>
-            <Icon
-              name="dots-horizontal"
-              type="material-community"
-              color={theme.colors.black}
-              size={20}
-            />
-          </View>
+          <HeaderTitle
+            title="Orders"
+            optionAction={
+              <Icon
+                name="dots-horizontal"
+                type="material-community"
+                color={theme.colors.black}
+                size={20}
+              />
+            }
+          />
           <View style={styles.analyticsContainer}>
             <Card containerStyle={styles.analyticsCard}>
               <Text style={styles.analyticsLabel}>Revenues & Expenses</Text>
@@ -111,28 +204,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    paddingHorizontal: 12,
   },
   section: {
-    marginBottom: 12,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-    paddingRight: 12,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    marginLeft: 16,
     marginBottom: 12,
   },
   darkCard: {
     backgroundColor: '#1C1C1E',
     borderRadius: 16,
     padding: 16,
-    margin: 16,
+    margin: 8,
     marginTop: 0,
   },
   cardHeader: {
@@ -155,15 +236,16 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   analyticsContainer: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
+    marginVertical: 10,
   },
   analyticsCard: {
     borderRadius: 16,
-    padding: 16,
+    padding: 24,
     margin: 0,
   },
   analyticsLabel: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#666',
     marginBottom: 12,
   },

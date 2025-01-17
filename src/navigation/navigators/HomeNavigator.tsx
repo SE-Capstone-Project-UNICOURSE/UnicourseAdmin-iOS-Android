@@ -4,7 +4,7 @@ import React from 'react';
 import useBottomTabRoutes from '../hooks/useBottomRoutes';
 import { HomeTabParams } from '../types/HomeTabParams.type';
 
-const Tab = createBottomTabNavigator<HomeTabParams>();
+export const Tab = createBottomTabNavigator<HomeTabParams>();
 
 const HomeNavigator = () => {
   const bottomTabRoutes = useBottomTabRoutes();
