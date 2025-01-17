@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react-native';
 import React from 'react';
-import LoginScreen from '../views/screens/LoginScreen.ios';
+import LoginScreen from '../views/screens/LoginScreen';
 
 jest.mock('react-native-gesture-handler', () => {
   return {

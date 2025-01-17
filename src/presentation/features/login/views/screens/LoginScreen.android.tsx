@@ -4,7 +4,7 @@ import React, { useCallback, useState } from 'react';
 import { Keyboard, StyleSheet, View } from 'react-native';
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import IconButton from '../components/IconButton/IconButton.ios';
+import IconButton from '../components/IconButton/IconButton';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -84,6 +84,7 @@ export default function LoginScreen() {
             title="Sign in"
             containerStyle={styles.signInButtonContainer}
             buttonStyle={styles.signInButton}
+            onPress={() => console.log('Press')}
           />
 
           <View style={styles.diviverContainer}>

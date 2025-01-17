@@ -1,10 +1,10 @@
 import icons from '@app/assets/icons';
 import { Button, CheckBox, Divider, Icon, Image, Input, Text } from '@rneui/themed';
 import React, { useCallback, useState } from 'react';
-import { Keyboard, ScrollView, StyleSheet, View } from 'react-native';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { Keyboard, StyleSheet, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import IconButton from '../components/IconButton/IconButton.ios';
+import IconButton from '../components/IconButton/IconButton';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -19,84 +19,83 @@ export default function LoginScreen() {
   return (
     <ScrollView style={styles.container}>
       <SafeAreaView>
-        <TouchableWithoutFeedback onPress={dismissKeyboard}>
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <Image source={icons.logoIcon} style={styles.logo} resizeMode="contain" />
-          </View>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Image source={icons.logoIcon} style={styles.logo} resizeMode="contain" />
+        </View>
 
-          <View style={styles.headerContainer}>
-            <Text style={styles.title} h3>
-              Let's continue manage your{'\n'}business
-            </Text>
-            <Text style={styles.subtitle}>Your business is waiting for you</Text>
-          </View>
+        <View style={styles.headerContainer}>
+          <Text style={styles.title} h3>
+            Let's continue manage your{'\n'}business
+          </Text>
+          <Text style={styles.subtitle}>Your business is waiting for you</Text>
+        </View>
 
-          <View style={styles.inputContainer}>
-            <Input
-              label="Email"
-              value={email}
-              onChangeText={setEmail}
-              placeholder="arfi.ganteng@mail.com"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              leftIcon={<Icon type="feather" name="user" size={20} color="#999" />}
-            />
-
-            <Input
-              label="Password"
-              value={password}
-              onChangeText={setPassword}
-              secureTextEntry={!showPassword}
-              placeholder="••••••"
-              leftIcon={<Icon type="feather" name="lock" size={20} color="#999" />}
-              rightIcon={
-                <Icon
-                  type="feather"
-                  name={showPassword ? 'eye' : 'eye-off'}
-                  size={20}
-                  color="#999"
-                  onPress={() => setShowPassword(!showPassword)}
-                />
-              }
-            />
-
-            <View style={styles.rememberContainer}>
-              <CheckBox
-                title="Remember me"
-                checked={rememberMe}
-                onPress={() => setRememberMe(!rememberMe)}
-                containerStyle={styles.checkboxContainer}
-                textStyle={styles.rememberText}
-                checkedColor="#4285F4"
-              />
-              <Button type="clear" titleStyle={styles.forgotText} title="Forgot password?" />
-            </View>
-          </View>
-
-          <Button
-            title="Sign in"
-            containerStyle={styles.signInButtonContainer}
-            buttonStyle={styles.signInButton}
+        <View style={styles.inputContainer}>
+          <Input
+            label="Email"
+            value={email}
+            onChangeText={setEmail}
+            placeholder="arfi.ganteng@mail.com"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            leftIcon={<Icon type="feather" name="user" size={20} color="#999" />}
           />
 
-          <View style={styles.diviverContainer}>
-            <Divider width={1} style={styles.divider} />
-            <Text style={styles.orText}>Or</Text>
-            <Divider width={1} style={styles.divider} />
-          </View>
+          <Input
+            label="Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={!showPassword}
+            placeholder="••••••"
+            leftIcon={<Icon type="feather" name="lock" size={20} color="#999" />}
+            rightIcon={
+              <Icon
+                type="feather"
+                name={showPassword ? 'eye' : 'eye-off'}
+                size={20}
+                color="#999"
+                onPress={() => setShowPassword(!showPassword)}
+              />
+            }
+          />
 
-          <View style={styles.socialContainer}>
-            <IconButton icon={icons.appleIcon} />
-            <IconButton icon={icons.googleIcon} />
+          <View style={styles.rememberContainer}>
+            <CheckBox
+              title="Remember me"
+              checked={rememberMe}
+              onPress={() => setRememberMe(!rememberMe)}
+              containerStyle={styles.checkboxContainer}
+              textStyle={styles.rememberText}
+              checkedColor="#4285F4"
+            />
+            <Button type="clear" titleStyle={styles.forgotText} title="Forgot password?" />
           </View>
-        </TouchableWithoutFeedback>
+        </View>
+
+        <Button
+          title="Sign in"
+          containerStyle={styles.signInButtonContainer}
+          buttonStyle={styles.signInButton}
+          onPress={() => console.log('Press')}
+        />
+
+        <View style={styles.diviverContainer}>
+          <Divider width={1} style={styles.divider} />
+          <Text style={styles.orText}>Or</Text>
+          <Divider width={1} style={styles.divider} />
+        </View>
+
+        <View style={styles.socialContainer}>
+          <IconButton icon={icons.appleIcon} />
+          <IconButton icon={icons.googleIcon} />
+        </View>
       </SafeAreaView>
     </ScrollView>
   );
@@ -104,7 +103,6 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 10,
   },
   logo: {
