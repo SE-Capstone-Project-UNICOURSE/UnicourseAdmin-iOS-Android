@@ -2,6 +2,7 @@ import Main from '@app/Main';
 import store from '@app/stores';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import BootSplash from 'react-native-bootsplash';
 import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -12,7 +13,7 @@ const App = () => {
     <Provider store={store}>
       <SafeAreaProvider>
         <GestureHandlerRootView>
-          <NavigationContainer>
+          <NavigationContainer onReady={() => BootSplash.hide({ fade: true })}>
             <Main />
           </NavigationContainer>
         </GestureHandlerRootView>
