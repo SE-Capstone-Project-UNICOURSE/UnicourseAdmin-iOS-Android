@@ -2,7 +2,7 @@ import { RootStackParams } from '@app/navigation/types/RootStackParams.type';
 import { LinkingOptions } from '@react-navigation/native';
 
 const linking: LinkingOptions<RootStackParams> = {
-  prefixes: ['unicourseadmin://app'],
+  prefixes: ['unicourseadmin://app', 'https://app.unicourseadmin.com'],
   config: {
     screens: {
       home: {

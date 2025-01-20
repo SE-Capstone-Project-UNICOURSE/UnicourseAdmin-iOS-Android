@@ -14,6 +14,7 @@ const LoginScreen = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const { navigation } = useAppNavigation();
   const theme = useTheme();
+
   return (
     <ScrollView style={styles.container}>
       <SafeAreaView>

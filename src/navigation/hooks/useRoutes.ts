@@ -9,7 +9,7 @@ const useRoutes = (): Route[] => {
       component: MainScreens.LoginScreen,
       options: {
         headerShown: false,
-        presentation: 'fullScreenModal',
+        // presentation: 'fullScreenModal',
       },
     },
     {

@@ -5,7 +5,6 @@ import { BarChart } from 'react-native-chart-kit';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const InsightScreen = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const [timeRange, setTimeRange] = useState(0);
 
   const chartData = {

@@ -4,6 +4,7 @@ import { render } from '@testing-library/react-native';
 import React, { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider, createTheme } from '@rneui/themed';
+import { NavigationContainer } from '@react-navigation/native';
 
 // Create a mock theme for testing
 const mockTheme = createTheme({
@@ -34,9 +35,11 @@ export function renderWithProviders(
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
     return (
-      <Provider store={store}>
-        <ThemeProvider theme={mockTheme}>{children}</ThemeProvider>
-      </Provider>
+      <NavigationContainer>
+        <Provider store={store}>
+          <ThemeProvider theme={mockTheme}>{children}</ThemeProvider>
+        </Provider>
+      </NavigationContainer>
     );
   }
 
