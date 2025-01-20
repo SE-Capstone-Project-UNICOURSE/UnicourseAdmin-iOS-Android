@@ -1,5 +1,6 @@
 import Main from '@app/Main';
 import store from '@app/stores';
+import linking from '@app/utils/linking';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import BootSplash from 'react-native-bootsplash';
@@ -13,7 +14,7 @@ const App = () => {
     <Provider store={store}>
       <SafeAreaProvider>
         <GestureHandlerRootView>
-          <NavigationContainer onReady={() => BootSplash.hide({ fade: true })}>
+          <NavigationContainer linking={linking} onReady={() => BootSplash.hide({ fade: true })}>
             <Main />
           </NavigationContainer>
         </GestureHandlerRootView>
