@@ -49,6 +49,4 @@
                   continueUserActivity:userActivity
                     restorationHandler:restorationHandler];
 }
-
-
 @end

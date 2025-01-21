@@ -1,6 +1,6 @@
+import store from '@app/core/stores';
+import linking from '@app/core/utils/linking';
 import Main from '@app/Main';
-import store from '@app/stores';
-import linking from '@app/utils/linking';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import BootSplash from 'react-native-bootsplash';

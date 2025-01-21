@@ -1,4 +1,4 @@
-import { renderWithProviders } from '@app/utils/test-utils';
+import { renderWithProviders } from '@app/core/utils/test-utils';
 import { screen } from '@testing-library/react-native';
 import React from 'react';
 import InsightScreen from '../views/screens/InsightScreen';

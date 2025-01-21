@@ -1,14 +1,11 @@
-import { RootStackParams } from '@app/navigation/types/RootStackParams.type';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import useAppNavigation from '@app/presentation/navigation/hooks/useAppNavigation';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const PaymentScreen = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParams>>();
-
+  const { navigation } = useAppNavigation();
   const payments = [
     {
       title: 'Chicken Cure',

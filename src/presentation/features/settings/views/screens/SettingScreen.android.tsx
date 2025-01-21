@@ -1,4 +1,4 @@
-import useAppNavigation from '@app/navigation/hooks/useAppNavigation';
+import useAppNavigation from '@app/presentation/navigation/hooks/useAppNavigation';
 import { Avatar, Button, Icon, ListItem, Text } from '@rneui/themed';
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';

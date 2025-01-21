@@ -1,6 +1,6 @@
-import { renderWithProviders } from '@app/utils/test-utils';
 import React from 'react';
 import LoginScreen from '../views/screens/LoginScreen';
+import { renderWithProviders } from '@app/core/utils/test-utils';
 
 jest.mock('react-native-gesture-handler', () => ({
   ScrollView: 'ScrollView',
