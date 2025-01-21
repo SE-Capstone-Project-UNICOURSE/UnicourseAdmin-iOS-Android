@@ -1,7 +1,7 @@
 import images from '@app/assets/images';
-import { useAppDispatch, useAppSelector } from '@app/stores';
-import { hideDialog } from '@app/stores/slices/dialog.slice';
-import { DialogType } from '@app/stores/types/dialog.type';
+import { useAppDispatch, useAppSelector } from '@app/core/stores';
+import { hideDialog } from '@app/core/stores/slices/dialog.slice';
+import { DialogType } from '@app/core/stores/types/dialog.type';
 import { Button, Image, Overlay, Text, useTheme } from '@rneui/themed';
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
