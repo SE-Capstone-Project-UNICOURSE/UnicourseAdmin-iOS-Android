@@ -1,4 +1,9 @@
-# Getting Started
+# Before Start The Project
+Please install dependencies of the project
+```bash
+yarn
+```
+
 
 ## Step 1: Start the Metro Server
 
