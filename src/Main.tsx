@@ -2,10 +2,10 @@ import { ThemeProvider } from '@rneui/themed';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { useAppSelector } from './store';
-import darkTheme from './presentation/utils/theme/darkTheme';
-import lightTheme from './presentation/utils/theme/lightTheme';
-import AppNavigator from './presentation/navigation/navigators/AppNavigator';
-import AppDialog from './presentation/components/AppDialog';
+import darkTheme from './core/utils/theme/darkTheme';
+import lightTheme from './core/utils/theme/lightTheme';
+import AppNavigator from './navigation/navigators/AppNavigator';
+import AppDialog from './components/AppDialog';
 
 const Main = () => {
   const { isDarkMode } = useAppSelector((state) => state.settings);

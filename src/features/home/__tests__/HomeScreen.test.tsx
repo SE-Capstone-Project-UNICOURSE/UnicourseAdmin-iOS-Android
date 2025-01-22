@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react-native';
 import React from 'react';
-import HomeScreen from '../views/screens/HomeScreen.ios';
+import HomeScreen from '../views/screens/HomeScreen';
 import { renderWithProviders } from '@app/core/utils/test-utils';
 
 describe('HomeScreen', () => {

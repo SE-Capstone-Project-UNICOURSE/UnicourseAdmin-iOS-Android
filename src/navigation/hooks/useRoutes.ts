@@ -1,4 +1,4 @@
-import MainScreens from '@app/presentation/features';
+import MainScreens from '@app/features';
 import HomeNavigator from '../navigators/HomeNavigator';
 import { Route } from '../types/Route.type';
 

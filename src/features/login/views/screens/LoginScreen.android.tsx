@@ -1,5 +1,5 @@
 import icons from '@app/assets/icons';
-import useAppNavigation from '@app/presentation/navigation/hooks/useAppNavigation';
+import useAppNavigation from '@app/navigation/hooks/useAppNavigation';
 import { Button, CheckBox, Divider, Icon, Image, Input, Text } from '@rneui/themed';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -13,7 +13,6 @@ const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const { navigation } = useAppNavigation();
-
   return (
     <ScrollView style={styles.container}>
       <SafeAreaView>

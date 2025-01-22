@@ -1,4 +1,6 @@
-import HeaderTitle from '@app/presentation/components/UI/HeaderTitle';
+import HeaderTitle from '@app/components/UI/HeaderTitle';
+import { useAppDispatch } from '@app/store';
+import { showDialog } from '@app/store/slices/dialog.slice';
 import { MenuComponentRef, MenuView } from '@react-native-menu/menu';
 import { Card, Icon, Text, useTheme } from '@rneui/themed';
 import React, { useRef } from 'react';
@@ -7,8 +9,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import useHomeViewModel from '../../viewmodels/useHomeViewModel';
 import HeaderHome from '../components/HeaderHome';
 import MetricCard from '../components/MetricCard';
-import { useAppDispatch } from '@app/store';
-import { showDialog } from '@app/store/slices/dialog.slice';
 
 const HomeScreen = () => {
   const menuRef = useRef<MenuComponentRef>(null);

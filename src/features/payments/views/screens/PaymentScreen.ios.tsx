@@ -1,4 +1,4 @@
-import useAppNavigation from '@app/presentation/navigation/hooks/useAppNavigation';
+import useAppNavigation from '@app/navigation/hooks/useAppNavigation';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
