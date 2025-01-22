@@ -1,10 +1,10 @@
-import { AppStore, RootState, setupStore } from '@app/stores';
+import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider, createTheme } from '@rneui/themed';
 import type { RenderOptions } from '@testing-library/react-native';
 import { render } from '@testing-library/react-native';
 import React, { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
-import { ThemeProvider, createTheme } from '@rneui/themed';
-import { NavigationContainer } from '@react-navigation/native';
+import { AppStore, RootState, setupStore } from '../../store';
 
 // Create a mock theme for testing
 const mockTheme = createTheme({

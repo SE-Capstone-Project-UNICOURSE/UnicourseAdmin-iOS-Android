@@ -1,4 +1,4 @@
-import store from '@app/core/stores';
+import store from '@app/store';
 import linking from '@app/core/utils/linking';
 import Main from '@app/Main';
 import { NavigationContainer } from '@react-navigation/native';

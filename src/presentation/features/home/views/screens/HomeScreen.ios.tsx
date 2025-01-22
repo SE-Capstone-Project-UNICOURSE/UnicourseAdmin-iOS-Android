@@ -7,8 +7,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import useHomeViewModel from '../../viewmodels/useHomeViewModel';
 import HeaderHome from '../components/HeaderHome';
 import MetricCard from '../components/MetricCard';
-import { useAppDispatch } from '@app/core/stores';
-import { showDialog } from '@app/core/stores/slices/dialog.slice';
+import { useAppDispatch } from '@app/store';
+import { showDialog } from '@app/store/slices/dialog.slice';
 
 const HomeScreen = () => {
   const menuRef = useRef<MenuComponentRef>(null);
