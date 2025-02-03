@@ -13,6 +13,14 @@
     "test:coverage": "jest --coverage",
     "test:verbose": "jest --verbose"
   },
+  "codegenConfig": {
+    "name": "NativeLocalStorageSpec",
+    "type": "modules",
+    "jsSrcsDir": "./src/specs",
+    "android": {
+      "javaPackageName": "com.nativelocalstorage"
+    }
+  },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/template": "^0.76.5",
