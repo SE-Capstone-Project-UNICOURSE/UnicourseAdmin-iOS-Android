@@ -14,11 +14,11 @@
     "test:verbose": "jest --verbose"
   },
   "codegenConfig": {
-    "name": "NativeLocalStorageSpec",
+    "name": "NativeLocalModules",
     "type": "modules",
     "jsSrcsDir": "./src/specs",
     "android": {
-      "javaPackageName": "com.nativelocalstorage"
+      "javaPackageName": "com.nativelocalmodules"
     }
   },
   "dependencies": {

@@ -1,9 +1,8 @@
-package com.unicourseadmin.localstoragemodule
+package com.unicourseadmin.nativemodulepackage
 
 import android.content.Context
-import android.content.SharedPreferences
-import com.nativelocalstorage.NativeLocalStorageSpec
 import com.facebook.react.bridge.ReactApplicationContext
+import com.nativelocalmodules.NativeLocalStorageSpec
 
 class NativeLocalStorageModule(reactContext: ReactApplicationContext) : NativeLocalStorageSpec(reactContext) {
 

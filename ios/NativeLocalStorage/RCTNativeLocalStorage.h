@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <NativeLocalStorageSpec/NativeLocalStorageSpec.h>
+#import <NativeLocalModules/NativeLocalModules.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,3 +15,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+

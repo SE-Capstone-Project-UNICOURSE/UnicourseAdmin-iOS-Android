@@ -1,12 +1,11 @@
-import icons from '@app/assets/icons';
 import useAppNavigation from '@app/navigation/hooks/useAppNavigation';
-import NativeLocalStorage from '@app/specs/NativeLocalStorage';
 import { Button, CheckBox, Divider, Icon, Image, Input, Text } from '@rneui/themed';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import IconButton from '../components/IconButton/IconButton.ios';
+import icons from '@app/shared/assets/icons';
 
 const EMPTY = '<empty>';
 
@@ -16,30 +15,6 @@ const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const { navigation } = useAppNavigation();
-
-  const [value, setValue] = React.useState<string | null>(null);
-
-  const [editingValue, setEditingValue] = React.useState<string | null>(null);
-
-  React.useEffect(() => {
-    const storedValue = NativeLocalStorage?.getItem('myKey');
-    setValue(storedValue ?? '');
-  }, []);
-
-  function saveValue() {
-    NativeLocalStorage?.setItem(editingValue ?? EMPTY, 'myKey');
-    setValue(editingValue);
-  }
-
-  function clearAll() {
-    NativeLocalStorage?.clear();
-    setValue('');
-  }
-
-  function deleteValue() {
-    NativeLocalStorage?.removeItem('myKey');
-    setValue('');
-  }
 
   return (
     <ScrollView style={styles.container}>
@@ -121,16 +96,6 @@ const LoginScreen = () => {
           <IconButton icon={icons.appleIcon} />
           <IconButton icon={icons.googleIcon} />
         </View>
-
-        <Text style={styles.text}>Current stored value is: {value ?? 'No Value'}</Text>
-        <TextInput
-          placeholder="Enter the text you want to store"
-          style={styles.textInput}
-          onChangeText={setEditingValue}
-        />
-        <Button title="Save" onPress={saveValue} />
-        <Button title="Delete" onPress={deleteValue} />
-        <Button title="Clear" onPress={clearAll} />
       </SafeAreaView>
     </ScrollView>
   );
