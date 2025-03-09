@@ -1,19 +1,12 @@
-import HomeScreen from './home/views/screens/HomeScreen';
-import InsightScreen from './insight/views/screens/InsightScreen';
-import LoginScreen from './login/views/screens/LoginScreen';
-import PaymentScreen from './payments/views/screens/PaymentScreen';
-import SettingScreen from './settings/views/screens/SettingScreen';
+import HomeScreen from './home/presentation/views/screens/HomeScreen.ios';
+import InsightScreen from './insight/presentation/screens/InsightScreen.ios';
+import LoginScreen from './login/presentation/views/screens/LoginScreen.ios';
+import PaymentScreen from './payments/presentation/views/screens/PaymentScreen.ios';
+import SettingScreen from './settings/presentation/views/screens/SettingScreen.ios';
 
-const MainScreens = {
-  LoginScreen,
-};
+const MainScreens = { LoginScreen };
 
-const BottomScreen = {
-  HomeScreen,
-  PaymentScreen,
-  InsightScreen,
-  SettingScreen,
-};
+const BottomScreen = { HomeScreen, PaymentScreen, InsightScreen, SettingScreen };
 
 export { BottomScreen };
 

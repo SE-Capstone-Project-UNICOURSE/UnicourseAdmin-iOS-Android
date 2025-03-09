@@ -1,12 +1,12 @@
-import icons from '@app/assets/icons';
 import useAppNavigation from '@app/navigation/hooks/useAppNavigation';
 import { Button, CheckBox, Divider, Icon, Image, Input, Text } from '@rneui/themed';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import IconButton from '../components/IconButton/IconButton';
+import IconButton from '../components/IconButton/IconButton.ios';
 import NativeLocalStorage from '@app/specs/NativeLocalStorage';
+import icons from '@app/shared/assets/icons';
 
 const EMPTY = '<empty>';
 

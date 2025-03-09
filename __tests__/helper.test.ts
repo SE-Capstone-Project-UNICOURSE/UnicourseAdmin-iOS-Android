@@ -1,4 +1,4 @@
-import helpers from '@app/core/utils/helpers';
+import helpers from '@app/shared/utils/helpers';
 
 describe('helpers', () => {
   describe('formatDate', () => {

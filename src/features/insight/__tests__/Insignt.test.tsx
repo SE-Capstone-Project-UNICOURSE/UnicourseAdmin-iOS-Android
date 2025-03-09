@@ -1,7 +1,7 @@
-import { renderWithProviders } from '@app/core/utils/test-utils';
+import { renderWithProviders } from '@app/shared/utils/test-utils';
 import { screen } from '@testing-library/react-native';
 import React from 'react';
-import InsightScreen from '../views/screens/InsightScreen';
+import InsightScreen from '../presentation/screens/InsightScreen.ios';
 
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: 'SafeAreaView',

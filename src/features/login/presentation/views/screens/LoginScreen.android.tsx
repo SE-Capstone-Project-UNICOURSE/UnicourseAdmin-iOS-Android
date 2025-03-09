@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import IconButton from '../components/IconButton/IconButton';
+import IconButton from '../components/IconButton/IconButton.ios';
 
 const EMPTY = '<empty>';
 

@@ -7,8 +7,8 @@ import { Card, Icon, Text, useTheme } from '@rneui/themed';
 import React, { useRef } from 'react';
 import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import HeaderHome from '../components/HeaderHome';
-import MetricCard from '../components/MetricCard';
+import HeaderHome from '../components/HeaderHome.ios';
+import MetricCard from '../components/MetricCard.ios';
 
 const HomeScreen = () => {
   const menuRef = useRef<MenuComponentRef>(null);

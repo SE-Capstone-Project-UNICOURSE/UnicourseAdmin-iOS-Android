@@ -1,10 +1,10 @@
-import images from '@app/assets/images';
 import { useAppDispatch, useAppSelector } from '@app/store';
 import { hideDialog } from '@app/store/slices/dialog.slice';
 import { DialogType } from '@app/store/types/dialog.type';
 import { Button, Image, Overlay, Text, useTheme } from '@rneui/themed';
 import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
+import images from '../assets/images';
 
 const AppDialog = () => {
   const { theme } = useTheme();
