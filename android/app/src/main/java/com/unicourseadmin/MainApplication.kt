@@ -11,7 +11,7 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
-import com.nativelocalstorage.NativeLocalStoragePackage
+import com.unicourseadmin.localstoragemodule.NativeLocalStoragePackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -23,11 +23,8 @@ class MainApplication : Application(), ReactApplication {
               // add(MyReactNativePackage())
                 add(NativeLocalStoragePackage())
             }
-
         override fun getJSMainModuleName(): String = "index"
-
         override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
-
         override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
         override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
       }
